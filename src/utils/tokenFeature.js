@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 export const sendToken = (res, status = 200, message, user) => {
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
+  console.log("Token: ", token);
+
   res
     .status(status)
     .cookie("token", token, {

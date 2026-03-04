@@ -5,6 +5,6 @@ connectDB();
 
 app.listen(process.env.PORT, () => {
   console.log(
-    `Server is Working... on Post ${process.env.PORT} in ${process.env.NODE_ENV} mode`
+    `Server is Working... on Post ${process.env.PORT} in ${process.env.NODE_ENV} mode and Frontend URL ${process.env.FRONTEND_URL} `
   );
 });
