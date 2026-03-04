@@ -13,8 +13,14 @@ import { isAuthenticated } from "../middlewares/auth.js";
 export const userRoutes = express.Router();
 export const authRoutes = express.Router();
 
+userRoutes.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Backend API Work",
+  });
+});
 // GET    /api/v1/users
-userRoutes.get("/", isAuthenticated, allUsers);
+userRoutes.get("/users", isAuthenticated, allUsers);
 
 userRoutes
   .route("/me")
