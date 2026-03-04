@@ -11,7 +11,6 @@ export const app = express();
 dotenv.config();
 
 //* Using Middlewares
-app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
@@ -20,6 +19,8 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(express.json());
 
 //* Using Route
 //? User Route
