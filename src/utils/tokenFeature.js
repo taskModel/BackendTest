@@ -24,8 +24,8 @@ export const clearToken = (res, statusCode, message) => {
     .status(statusCode)
     .cookie("token", "", {
       expires: new Date(Date.now()),
-      sameSite: process.env.NODE_ENV === "Development" ? "lax" : "none",
-      secure: process.env.NODE_ENV === "Development" ? false : true,
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: process.env.NODE_ENV === "production",
     })
     .json({
       success: true,

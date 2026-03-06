@@ -25,11 +25,11 @@ userRoutes.get("/users", isAuthenticated, allUsers);
 userRoutes
   .route("/me")
   .all(isAuthenticated)
-  // GET    /api/v1/users/me
+  // GET    /api/v1/user/me
   .get(profile)
-  // PUT    /api/v1/users/me
+  // PUT    /api/v1/user/me
   .put(updateProfile)
-  // DELETE /api/v1/users/me
+  // DELETE /api/v1/user/me
   .delete(deleteProfile);
 
 // POST   /api/v1/auth/register
