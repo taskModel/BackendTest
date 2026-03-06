@@ -10,11 +10,16 @@ export const app = express();
 
 dotenv.config();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://your-frontend.vercel.app",
+];
+
 //* Using Middlewares
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
