@@ -6,6 +6,7 @@ export const sendToken = (res, status = 200, message, user) => {
   console.log("Token: ", token);
 
   const isProduction = process.env.NODE_ENV === "production";
+  console.log(isProduction);
 
   res
     .status(status)
