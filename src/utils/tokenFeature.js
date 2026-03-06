@@ -5,13 +5,15 @@ export const sendToken = (res, status = 200, message, user) => {
 
   console.log("Token: ", token);
 
+  const isProduction = process.env.NODE_ENV === "production";
+
   res
     .status(status)
     .cookie("token", token, {
       httpOnly: true,
       maxAge: 15 * 60 * 1000,
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: isProduction ? "none" : "lax",
+      secure: isProduction,
     })
     .json({
       success: true,
